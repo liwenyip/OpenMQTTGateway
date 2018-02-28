@@ -32,6 +32,8 @@
 #define subjectRFtoMQTTprotocol "home/433toMQTT/protocol"
 #define subjectRFtoMQTTbits "home/433toMQTT/bits"
 #define subjectRFtoMQTTlength "home/433toMQTT/length"
+#define subjectRFtoMQTTaddress "home/433toMQTT/address"
+#define subjectRFtoMQTTdata "home/433toMQTT/data"
 #define RFprotocolKey "433_" // protocol will be defined if a subject contains RFprotocolKey followed by a value of 1 digit
 #define RFbitsKey "RFBITS_" // bits  will be defined if a subject contains RFbitsKey followed by a value of 2 digits
 #define repeatRFwMQTT false // do we repeat a received signal by using mqtt
