@@ -75,6 +75,15 @@ boolean RFtoMQTT(){
             trc(F("Publish RF for repeat"));
             client.publish(subjectMQTTtoRF,(char *)value.c_str());
         }
+        #ifdef dataMask
+          unsigned long address = MQTTvalue & ~dataMask;
+          unsigned long data = MQTTvalue & dataMask;
+          String MQTTaddress = String(address);
+          String MQTTdata = String(data);
+          client.publish(subjectRFtoMQTTaddress,(char *)MQTTaddress.c_str());            
+          client.publish(subjectRFtoMQTTdata,(char *)MQTTdata.c_str());            
+          client.publish((char *)(subjectRFtoMQTT+String("/")+MQTTaddress).c_str(),(char *)MQTTdata.c_str());
+        #endif            
         return result;
     } 
   }
